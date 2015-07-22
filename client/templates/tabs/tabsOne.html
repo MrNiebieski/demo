@@ -4,7 +4,19 @@
 
     {{#ionContent class="padding"}}
       <h1>Event</h1>
-      {{> lists}}
+      {{#each events}}
+	      {{#ionItem path="lists" buttonRight=true avatar=true}}
+           
+	        <img src="https://randomuser.me/api/portraits/thumb/men/27.jpg">
+	        <h2>{{title}}</h2>
+	          {{body}}
+            <a href="/evnets/{{_id}}">detail</a>
+	          
+	        {{> ionIcon icon="ios-arrow-right" class = "button icon-left ion-chevron-left button-clear button-dark"}}
+
+	      {{/ionItem}}
+
+      {{/each}}
     {{/ionContent}}
 
     {{> _tabs}}

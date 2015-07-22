@@ -39,4 +39,8 @@ Router.map(function() {
   this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
   this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
   this.route('userAccounts');
+  Router.route('/evnets/:_id', {
+  name: 'eventDetail',
+  data: function() { return Events.findOne(this.params._id); }
+});
 });

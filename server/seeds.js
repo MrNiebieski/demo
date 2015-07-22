@@ -1,10 +1,10 @@
 Meteor.startup(function () {
 
-  if (Posts.find({}).count() === 0) {
-    Posts.insert({
-      title: Fake.sentence(),
-      body: Fake.paragraph(),
-      published: Fake.fromArray([true, false])
+  if (Events.find({}).count() === 0) {
+    Events.insert({
+      title: 'default Title',
+      body: 'default Body',
+      date: '2015-07-25',
     });
   }
 

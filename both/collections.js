@@ -1,6 +1,11 @@
-Posts = new Mongo.Collection('posts');
+Events = new Mongo.Collection('events');
 
-Posts.attachSchema(new SimpleSchema({
+Events.insert({
+  name: 'Park',
+  date: '2015-07-25',
+});
+
+Events.attachSchema(new SimpleSchema({
   title: {
     type: String,
     max: 200,
@@ -14,6 +19,18 @@ Posts.attachSchema(new SimpleSchema({
       rows: 10,
       'label-type': 'stacked'
     }
+  },
+  date: {
+    type: Date,
+    autoform: {
+      afFieldInput: {
+        type: "bootstrap-datepicker"
+      }
+    }
+    // autoform: {
+    //   rows: 10,
+    //   'label-type': 'stacked'
+    // }
   },
   published: {
     type: Boolean,
