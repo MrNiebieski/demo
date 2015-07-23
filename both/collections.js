@@ -32,11 +32,35 @@ Events.attachSchema(new SimpleSchema({
     //   'label-type': 'stacked'
     // }
   },
+  picture: {
+    type: String,
+    autoform: {
+      afFieldInput: {
+        type: 'fileUpload',
+        collection: 'Images',
+        label: 'Choose file'
+      }
+    }
+  },
   published: {
     type: Boolean,
     defaultValue: true,
     autoform: {
       type: 'toggle'
     }
-  }
+  },
+  authorId: {
+    type: String,
+    optional: false,
+    autoValue: function () {
+      if (this.isSet) {
+        return;
+      }
+      if (this.isInsert) {
+        return Meteor.userId();
+      } else {
+        this.unset();
+      }
+    }
+  },
 }));

@@ -1,8 +1,14 @@
 <template name="tabsFour">
   {{> _tabsHeader}}
-
   {{#ionContent class="padding"}}
     <h1>My Profile</h1>
+    {{#if currentUser}}
+    <p>hello</p>
+    {{> loginButtons}}
+    {{else}}
+    Please sign in first
+    {{> atForm}}
+    {{/if}}
     <div><img src="https://randomuser.me/api/portraits/thumb/men/27.jpg"></div>
     <div class="list card">
 

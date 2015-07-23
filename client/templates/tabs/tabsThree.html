@@ -1,11 +1,20 @@
 <template name="tabsThree">
   {{> _tabsHeader}}
+  {{#if currentUser}} 
+    {{#ionContent class="padding"}}
+      <h1>Post an Event</h1>
+  <!--     {{> quickForm collection="Events" doc=post id="edit-form" type="insert" fields="title,body,date,picture,published" buttonContent="Submit"}}
+      {{> afQuickField name="picture"}} -->
+      {{#autoForm collection="Events" id= "new-post" type="insert" buttonContent="Create"}}
+          {{> afQuickField name="title"}}
+          {{> afQuickField name="picture"}}
+          <button type="submit" class="btn btn-primary">Post</button>
+      {{/autoForm}}
 
-  {{#ionContent class="padding"}}
-    <h1>Post an Event</h1>
-    {{> quickForm collection="Events" doc=post id="edit-form" type="insert" fields="title,body,date,published" buttonContent="Submit"}}
-
-  {{/ionContent}}
+    {{/ionContent}}
+  {{else}}
+     Todo
+  {{/if}}
 
   {{> _tabs}}
 </template>

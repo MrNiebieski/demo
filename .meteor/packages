@@ -21,3 +21,8 @@ meteoric:autoform-ionic
 useraccounts:ionic
 aldeed:autoform-bs-datepicker
 rajit:bootstrap3-datepicker
+cfs:standard-packages
+cfs:gridfs
+yogiben:autoform-file
+accounts-ui
+
