@@ -12,7 +12,6 @@ Meteor.startup(function () {
 });
 
 Router.map(function() {
-  this.route('tabs.one', {path: '/'});
   this.route('actionSheet');
   this.route('backdrop');
   this.route('forms', {
@@ -35,6 +34,16 @@ Router.map(function() {
   this.route('sideMenu');
   this.route('slideBox');
   // this.route('tabs.one', {path: '/tabs/one', layoutTemplate: 'tabsLayout'});
+  // this.route('editPost', {
+  //   path: '/editPost/:_id',
+  //   subscriptions: function() {
+  //     Meteor.subscribe('post', this.params._id);
+  //   },
+    // data: function() {
+    //   return Posts.findOne(this.params._id);
+    // }
+  // });
+
   this.route('tabs.two', {path: '/tabs/two', layoutTemplate: 'tabsLayout'});
   this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
   this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
@@ -44,3 +53,30 @@ Router.map(function() {
   data: function() { return Events.findOne(this.params._id); }
 });
 });
+
+Router.route('/', {
+  waitOn: function() {
+    return Meteor.subscribe('eventsList');
+  },
+  data: function() {
+    return {
+      // events: Events.find({}, { sort: { title: -1, body: 1 } })
+      events: Events.find({})
+    };
+  },
+  action: function(){this.render('tabsOne');},
+
+});
+
+// Router.route('/events/:_id', {
+//   waitOn: function() {
+//     return Meteor.subscribe('eventsList');
+//   },
+//   data: function() {
+//     return {
+//       events: Events.find({}, { sort: { title: -1, body: 1 } })
+//     };
+//   },
+//   action: function(){this.render('eventDetail');},
+
+// });
