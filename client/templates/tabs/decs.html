@@ -1,0 +1,99 @@
+
+<template name="desc">
+<!-- <h1>Babys</h1>
+
+
+  <h2>{{name}}</h2>
+ <p>{{age}}</p>
+ -->
+
+
+
+<!-- {{#ionView}}
+
+{{> _tabsHeader}}
+
+    {{#ionContent class="padding"}}
+      <h1>Babys</h1>
+
+
+
+
+
+		<div class="list">
+			      
+				      <h2>{{name}}</h2>
+				      <p>{{age}}</p>
+
+				      <p>{{desc}}</p>
+		
+		</div>	
+		
+
+  {{/ionContent}}
+{{> _tabs}}
+{{/ionView}} -->
+
+
+
+ {{> _tabsHeader}}
+
+  {{#ionContent class="padding"}}
+    
+
+
+<div class="list card">
+
+  <div class="item item-avatar">
+    
+    {{#with attachImgSrc}}
+        <img src="{{this.url}}" alt="{{name}}" >
+    {{/with}}
+
+    <h2>{{name}}</h2>
+    <p>{{age}}</p>
+  </div>
+
+  <div class="item item-body">
+
+   
+
+              <p>{{desc}}</p>
+    
+
+    <a href="#" class="item item-icon-left">
+        <i class="icon ion-images"></i>
+        My Photos
+      </a>
+
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-calendar"></i>
+        My Events
+      </a>
+
+      <a href="#" class="item item-icon-left">
+        <i class="icon ion-log-out"></i>
+        Log out
+      </a>
+
+   
+   
+     
+  </div>
+
+</div>
+
+
+
+    
+  {{/ionContent}}
+
+  {{> _tabs}}
+
+
+
+
+
+
+
+ </template>

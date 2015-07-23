@@ -1,6 +1,35 @@
 <template name="_tabsHeader">
   {{#ionHeaderBar class="bar-positive"}}
     {{>ionNavBackButton path="index"}}
-    <h1 class="title">Tabs</h1>
+
+
+
+
+    <h1 class="title">Sweet Playdate</h1>
+
+
+
+    <div class="bar bar-header">
+  <button class="button icon ion-navicon"></button>
+  <h1 class="title">Header Buttons</h1>
+  <a class="button" href="userAccounts">
+  {{#if currentUser}}
+     
+          Log Out
+
+
+      {{else}}
+       
+        Sign in
+{{/if}}
+
+  </a>
+</div>
+
+
+
+
+
+
   {{/ionHeaderBar}}
 </template>

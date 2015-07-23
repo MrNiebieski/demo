@@ -11,32 +11,111 @@ Meteor.startup(function () {
   }
 });
 
-Router.map(function() {
-  this.route('tabs.one', {path: '/'});
-  this.route('actionSheet');
-  this.route('backdrop');
-  this.route('forms', {
+// Router.map(function() {
+//   this.route('actionSheet');
+//   this.route('backdrop');
+//   this.route('forms', {
+//     data: function () {
+//       return {
+//         post: Posts.find().fetch()[0]
+//       };
+//     }
+//   });
+
+
+
+
+
+
+
+
+
+Router.route('/babys/:_id', {
+  waitOn: function() {
+    return Meteor.subscribe('babys',this.params._id);
+  },
+   data: function () {
+      return {
+        kids: Kids.find().findOne()
+      };
+    },
+    action: function () {
+      this.render(babys);
+    }
+});
+
+
+
+// Router.route('/events/:_id', {
+//   name: 'details',
+//   data: function() { return Events.findOne(this.params._id); }
+// });
+
+
+
+// Router.route('/', {
+//   waitOn: function() {
+//     return Meteor.subscribe('babys');
+//   },
+//    data: function () {
+//       return {
+//        babys : Kids.find()
+//       };
+//     },
+//     action: function () {
+//       this.render('tabsOne');
+//     }
+// });
+
+
+
+Router.route('/',
+  {
+    waitOn: function() {
+      return Meteor.subscribe('babys');
+    },
     data: function () {
       return {
-        post: Posts.find().fetch()[0]
+       babys : Kids.find()
       };
-    }
-  });
-  this.route('headersFooters');
-  this.route('lists');
-  this.route('loading');
-  this.route('modal');
-  this.route('navigation');
-  this.route('navigation.one', {path: '/navigation/one'});
-  this.route('navigation.two', {path: '/navigation/two'});
-  this.route('navigation.three', {path: '/navigation/three'});
-  this.route('popover');
-  this.route('popup');
-  this.route('sideMenu');
-  this.route('slideBox');
-  // this.route('tabs.one', {path: '/tabs/one', layoutTemplate: 'tabsLayout'});
-  this.route('tabs.two', {path: '/tabs/two', layoutTemplate: 'tabsLayout'});
-  this.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
-  this.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
-  this.route('userAccounts');
+    },
+    //this.render('tabsOne');
+    name: 'tabsOne'
+  }
+);
+
+//   this.route('headersFooters');
+//   this.route('lists');
+//   this.route('loading');
+//   this.route('modal');
+//   this.route('navigation');
+//   this.route('navigation.one', {path: '/navigation/one'});
+//   this.route('navigation.two', {path: '/navigation/two'});
+//   this.route('navigation.three', {path: '/navigation/three'});
+//   this.route('popover');
+//   this.route('popup');
+//   this.route('sideMenu');
+//   this.route('slideBox');
+Router.route('tabs.one', {
+  path: '/tabs/one', 
+  layoutTemplate: 'tabsLayout',
+
+    waitOn: function() {
+      Meteor.subscribe('images');
+      return Meteor.subscribe('babys');
+    },
+    data: function () {
+      return {
+       babys : Kids.find()
+
+      };
+    },
+
 });
+
+
+Router.route('tabs.two', {path: '/tabs/two', layoutTemplate: 'tabsLayout'});
+Router.route('tabs.three', {path: '/tabs/three', layoutTemplate: 'tabsLayout'});
+Router.route('tabs.four', {path: '/tabs/four', layoutTemplate: 'tabsLayout'});
+//   this.route('userAccounts');
+// });

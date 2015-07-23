@@ -2,7 +2,43 @@
   {{> _tabsHeader}}
 
   {{#ionContent class="padding"}}
-    <h1>Tab 3</h1>
+    <h1>Create Event</h1>
+
+
+
+{{#autoForm collection="Kids" id="new-post" type="insert" buttonContent="Create"}}
+  {{> afQuickField name="name"}}
+  {{> afQuickField name="age"}}
+  {{> afQuickField name="desc"}}
+  {{> afQuickField name="picture"}}
+
+<!-- 
+  {{#autoForm collection="Events" id="new-post-event" type="insert" buttonContent="Create"}}
+  {{> afQuickField name="name"}}
+  {{> afQuickField name="where"}}
+  {{> afQuickField name="when"}}
+  {{> afQuickField name="details"}} -->
+  
+
+ 
+  <div class="button-bar">
+    <button type="submit" class="button icon ion-android-send button-positive"> Submit</button>
+  </div>
+{{/autoForm}}
+      
+
+
+
+
+
+
+
+<!-- {{> quickForm collection="Kids" doc=post id="edit-form" type="insert" fields="name,age,desc" buttonContent="Submit"}}  -->
+
+
+
+
+
   {{/ionContent}}
 
   {{> _tabs}}

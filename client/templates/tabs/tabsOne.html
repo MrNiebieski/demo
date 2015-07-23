@@ -1,12 +1,116 @@
 <template name="tabsOne">
-  {{#ionView}}
+  <!-- {{#ionView}}
     {{> _tabsHeader}}
 
     {{#ionContent class="padding"}}
       <h1>Event</h1>
+    
+
       {{> lists}}
     {{/ionContent}}
 
     {{> _tabs}}
-  {{/ionView}}
+  {{/ionView}} -->
+
+
+<!-- {{#ionView}}
+    {{#ionContent}}
+      {{#ionList}}
+
+        {{#each babys}}
+
+          {{#ionItem path="/babys/{{_id}}" buttonRight=true avatar=true}}
+
+           
+            <h2>{{name}}</h2>
+              <p>{{age}}</p>
+             <button class="button button-large button-stable">{{> ionIcon icon="ios-arrow-right"}}</button>
+
+          {{/ionItem}}
+
+        {{/each}}
+
+      {{/ionList}}
+    {{/ionContent}}
+  {{/ionView}} -->
+
+
+
+
+
+{{#ionView}}
+
+{{> _tabsHeader}}
+
+    {{#ionContent class="padding"}}
+      <h1>Event</h1>
+
+
+
+   <!-- {{> loginButtons}} -->
+
+
+
+    {{#if currentUser}}
+
+        <div class="padding">
+          <a class="item" href="" data-action="logout">Log Out</a>
+          <!-- <button class="button button-positive button-block" data-action="logout">Log Out</button> -->
+        </div>
+
+
+
+      {{else}}
+        <!-- {{> atForm}} -->
+         <a class="item" href="userAccounts">Sign in</a>
+    {{/if}}
+
+
+<div class="list">
+
+      {{#each babys}}
+
+            <a class="item item-thumbnail-left" href="/babys/{{_id}}">
+
+            {{#with attachImgSrc}}
+               <img src="{{this.url}}" alt="{{this.name}}" >
+            {{/with}}
+              
+              <h2>{{name}}</h2>
+              <p>{{age}}</p>
+              
+            </a>
+        
+
+      {{/each}}
+    </div>
+
+
+
+ <!--  <div class="list">
+
+      {{#each events}}
+
+            <a class="item item-thumbnail-left" href="/events/{{_id}}">
+
+            {{#with attachImgSrc}}
+               <img src="{{this.url}}" alt="{{this.name}}" >
+            {{/with}}
+              
+              <h2>{{name}}</h2>
+              <p>{{when}}</p>
+              <p>{{where}}</p>
+            </a>
+        
+
+      {{/each}}
+    </div> -->
+
+			
+		
+
+  {{/ionContent}}
+{{> _tabs}}
+{{/ionView}}
+
 </template>
